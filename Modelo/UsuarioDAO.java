@@ -17,28 +17,6 @@ public class UsuarioDAO {
         }
     }
 
-    public static void mostrarUsuarios(Connection cn) {
-        try {
-            Statement st = cn.createStatement();
-            String consulta = "SELECT * FROM usuarios";
-            ResultSet rs = st.executeQuery(consulta);
-
-            while (rs.next()) {
-                String user = rs.getString("user");
-                String nombre = rs.getString("nombre");
-                String apellidos = rs.getString("apellidos");
-                String email = rs.getString("email");
-                String contraseña = rs.getString("contraseña");
-                System.out.println("Usuario: " + user + ", Nombre: " + nombre + " " + apellidos + ", Email: " + email + ", Contraseña: " + contraseña);
-            }
-
-            rs.close();
-            st.close();
-        } catch (SQLException e) {
-            System.out.println("Error al mostrar los usuarios");
-            e.printStackTrace();
-        }
-    }
 
     public static boolean buscarUsuario(Connection cn, String user, String contraseña) {
     boolean existe = false;

@@ -3,7 +3,7 @@ import Vista.VistaLogin;
 import Vista.VistaRegistro;
 import Vista.VistaInicioMenu;
 import Controlador.ContInicioSesion;
-import Controlador.ContRegistro;
+
 
 public class App {
     public static void main(String[] args) {

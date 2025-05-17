@@ -17,7 +17,7 @@ public class ComponenteDAO {
         }
     }
 
-    public static void mostrarComponentes(Connection cn) {
+    public static void mostrarComponente(Connection cn) {
         try {
             Statement st = cn.createStatement();
             String consulta = "SELECT * FROM componentes";

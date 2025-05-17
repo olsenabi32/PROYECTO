@@ -1,10 +1,7 @@
 package Controlador;
 
-import Vista.VistaLogin;
-import Vista.VistaInicioMenu;
-import Vista.VistaInicioSesion;
-import Modelo.UsuarioDAO;
-import Modelo.ConexionBD;
+import Vista.*;
+import Modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,13 +29,16 @@ public class ContLogin {
             public void actionPerformed(ActionEvent e) {
                 String user = vistaLogin.campoUsuario.getText();
                 String contraseña = new String(vistaLogin.campoContraseña.getPassword());
+                vistaMenu.setNombreUsuario(user);
 
                 Connection cn = ConexionBD.conectar();
+
 
                 if (UsuarioDAO.buscarUsuario(cn, user, contraseña)) {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
                     vistaLogin.cerrarVentana();
                     vistaMenu.mostrarVentana();
+                    new ControladorMenu(vistaMenu, new VistaResumenCompras(), new VistaComponentes());
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta");
                 }

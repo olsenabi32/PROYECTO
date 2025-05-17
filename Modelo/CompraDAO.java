@@ -17,10 +17,10 @@ public class CompraDAO {
         }
     }
 
-    public static void mostrarCompras(Connection cn) {
+    public static void mostrarCompraSegunUser(Connection cn, String user) {
         try {
             Statement st = cn.createStatement();
-            String consulta = "SELECT * FROM compras";
+            String consulta = "SELECT * FROM compras WHERE user = '" + user + "'";
             ResultSet rs = st.executeQuery(consulta);
 
             while (rs.next()) {
@@ -31,7 +31,7 @@ public class CompraDAO {
             rs.close();
             st.close();
         } catch (SQLException e) {
-            System.out.println("Error al mostrar compras");
+            System.out.println("Error al mostrar compras del usuario");
             e.printStackTrace();
         }
     }

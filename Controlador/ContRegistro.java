@@ -35,6 +35,8 @@ public class ContRegistro {
                 String nombre = vistaRegistro.campoNombre.getText();
                 String apellidos = vistaRegistro.campoApellidos.getText();
                 String correo = vistaRegistro.campoCorreo.getText();
+                vistaInicioMenu.setNombreUsuario(user); // user es el texto del campo de usuario
+
 
                 Connection cn = ConexionBD.conectar();
                 UsuarioDAO.insertarUsuario(cn, user, nombre, apellidos, correo, pass);

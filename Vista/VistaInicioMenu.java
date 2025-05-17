@@ -9,6 +9,7 @@ public class VistaInicioMenu {
     private JFrame ventana;
     public JButton btnVerCompras;
     public JButton btnComprarcomp;
+    public JLabel etiquetaUsuario;
 
     public VistaInicioMenu() {
         initialize();
@@ -36,6 +37,12 @@ public class VistaInicioMenu {
         btnComprarcomp.setBounds(250, 300, 300, 70);
         btnComprarcomp.setFont(new Font("Arial", Font.PLAIN, 20));
         ventana.getContentPane().add(btnComprarcomp);
+
+        etiquetaUsuario = new JLabel("User: ");
+        etiquetaUsuario.setBounds(20, 20, 300, 30); // Esquina superior izquierda
+        etiquetaUsuario.setFont(new Font("Arial", Font.PLAIN, 15));
+        ventana.getContentPane().add(etiquetaUsuario);
+
     }
 
     // Método para mostrar la ventana
@@ -47,6 +54,11 @@ public class VistaInicioMenu {
     public void cerrarVentana() {
         ventana.dispose();
     }
+
+    public void setNombreUsuario(String nombre) {
+    etiquetaUsuario.setText("Usuario: " + nombre);
+}
+
 
     // Para probar directamente
     public static void main(String[] args) {
