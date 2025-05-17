@@ -13,6 +13,7 @@ public class VistaRegistro {
     public JTextField campoApellidos;
     public JTextField campoCorreo;
     public JButton btnRegistrar;
+    public JButton btnVolver;
 
     public VistaRegistro() {
         initialize();
@@ -92,6 +93,12 @@ public class VistaRegistro {
         btnRegistrar.setFont(new Font("Arial", Font.BOLD, 20));
         btnRegistrar.setBounds(320, 410, 150, 50);
         ventana.getContentPane().add(btnRegistrar);
+
+        btnVolver = new JButton("Volver");
+        btnVolver.setFont(new Font("Arial", Font.PLAIN, 18));
+        btnVolver.setBounds(630, 480, 120, 40); // Posición abajo a la derecha
+        ventana.getContentPane().add(btnVolver);
+
     }
 
     public void mostrarVentana() {

@@ -8,6 +8,7 @@ public class VistaLogin {
 
     private JFrame ventana;
     public JButton btnEntrar;
+    public JButton btnVolver;
     public JTextField campoUsuario;
     public JPasswordField campoContraseña;
 
@@ -56,6 +57,11 @@ public class VistaLogin {
         btnEntrar.setFont(new Font("Arial", Font.BOLD, 22));
         btnEntrar.setBounds(310, 350, 150, 50);
         ventana.getContentPane().add(btnEntrar);
+
+        btnVolver = new JButton("Volver");
+        btnVolver.setFont(new Font("Arial", Font.PLAIN, 18));
+        btnVolver.setBounds(630, 480, 120, 40); // posición abajo a la derecha
+        ventana.getContentPane().add(btnVolver);
     }
 
     public void mostrarVentana() {

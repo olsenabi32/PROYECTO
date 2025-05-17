@@ -40,18 +40,28 @@ public class UsuarioDAO {
         }
     }
 
-    public static void modificarEmail(Connection cn, String user, String nuevoEmail) {
-        try {
-            Statement st = cn.createStatement();
-            String consulta = "UPDATE usuarios SET email = '" + nuevoEmail + "' WHERE user = '" + user + "'";
-            int filas = st.executeUpdate(consulta);
-            System.out.println("Email modificado. Filas afectadas: " + filas);
-            st.close();
-        } catch (SQLException e) {
-            System.out.println("Error al modificar el email");
-            e.printStackTrace();
+    public static boolean buscarUsuario(Connection cn, String user, String contraseña) {
+    boolean existe = false;
+
+    try {
+        Statement st = cn.createStatement();
+        String consulta = "SELECT * FROM usuarios WHERE user = '" + user + "' AND contraseña = '" + contraseña + "'";
+        ResultSet rs = st.executeQuery(consulta);
+
+        if (rs.next()) {
+            existe = true;
         }
+
+        rs.close();
+        st.close();
+    } catch (SQLException e) {
+        System.out.println("Error al buscar el usuario");
+        e.printStackTrace();
     }
+
+    return existe;
+}
+
 
     public static void borrarUsuario(Connection cn, String user) {
         try {

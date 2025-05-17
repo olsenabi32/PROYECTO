@@ -8,7 +8,10 @@ public class ConexionBD {
 
     public static Connection conectar() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/TiendaComponentes", "root", "010393");
+            
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "010393");
+            return connection;        
+        
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos");
             e.printStackTrace();
