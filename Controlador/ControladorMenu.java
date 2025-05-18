@@ -13,7 +13,9 @@ import javax.swing.JOptionPane;
 public class ControladorMenu {
 
 
-    public ControladorMenu(VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes){
+    public ControladorMenu(VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuarioLogueado) {
+
+        vistaMenu.setNombreUsuario(usuarioLogueado);
 
         vistaMenu.mostrarVentana();
 
@@ -34,5 +36,20 @@ public class ControladorMenu {
                 new ContComponenetes(vistaComponentes, vistaMenu);
             }
         });
+
+        vistaMenu.btnAdministrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Connection cn = ConexionBD.conectar();
+                if (UsuarioDAO.esAdmin(cn, usuarioLogueado)) {
+                    vistaMenu.cerrarVentana();
+                    vistaAdmin.mostrarVentana();
+                    new ContMenuAdmin(vistaMenu, vistaAdmin, new VistaBorrarComp(),new VistaAñadirComp(), usuarioLogueado);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No estás autorizada para acceder a esta función.");
+                }
+            }
+        });
+
     }
 }

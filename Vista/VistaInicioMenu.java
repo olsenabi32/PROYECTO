@@ -9,6 +9,7 @@ public class VistaInicioMenu {
     private JFrame ventana;
     public JButton btnVerCompras;
     public JButton btnComprarcomp;
+    public JButton btnAdministrar;
     public JLabel etiquetaUsuario;
 
     public VistaInicioMenu() {
@@ -29,14 +30,19 @@ public class VistaInicioMenu {
         ventana.getContentPane().add(titulo);
 
         btnVerCompras = new JButton("Ver Compras");
-        btnVerCompras.setBounds(250, 200, 300, 70);
+        btnVerCompras.setBounds(250, 160, 300, 60);
         btnVerCompras.setFont(new Font("Arial", Font.PLAIN, 20));
         ventana.getContentPane().add(btnVerCompras);
 
         btnComprarcomp = new JButton("Comprar Componenetes");
-        btnComprarcomp.setBounds(250, 300, 300, 70);
+        btnComprarcomp.setBounds(250, 240, 300, 60);
         btnComprarcomp.setFont(new Font("Arial", Font.PLAIN, 20));
         ventana.getContentPane().add(btnComprarcomp);
+
+        btnAdministrar = new JButton("Administrar Componentes");
+        btnAdministrar.setBounds(250, 320, 300, 60);
+        btnAdministrar.setFont(new Font("Arial", Font.PLAIN, 20));
+        ventana.getContentPane().add(btnAdministrar);
 
         etiquetaUsuario = new JLabel("User: ");
         etiquetaUsuario.setBounds(20, 20, 300, 30); // Esquina superior izquierda

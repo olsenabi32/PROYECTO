@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class ComponenteDAO {
 
-    public static void insertarComponente(Connection cn, String nombre, String tipo, String compatibleCon, double precio, int stock) {
+    public void insertarComponente(Connection cn, String nombre, String tipo, String compatibleCon, double precio, int stock) {
         try {
             Statement st = cn.createStatement();
             String consulta = "INSERT INTO componentes VALUES ('" + nombre + "', '" + tipo + "', '" + compatibleCon + "', " + precio + ", " + stock + ")";
@@ -17,7 +17,7 @@ public class ComponenteDAO {
         }
     }
 
-    public static void mostrarComponente(Connection cn) {
+    public void mostrarComponente(Connection cn) {
         try {
             Statement st = cn.createStatement();
             String consulta = "SELECT * FROM componentes";
@@ -37,7 +37,7 @@ public class ComponenteDAO {
         }
     }
 
-    public static void actualizarStock(Connection cn, String nombre, int nuevoStock) {
+    public void actualizarStock(Connection cn, String nombre, int nuevoStock) {
         try {
             Statement st = cn.createStatement();
             String consulta = "UPDATE componentes SET stock = " + nuevoStock + " WHERE nombre = '" + nombre + "'";
@@ -50,17 +50,26 @@ public class ComponenteDAO {
         }
     }
 
-    public static void borrarComponente(Connection cn, String nombre) {
+    public static boolean borrarComponente(Connection cn, String nombre) {
+    boolean result = false;
         try {
             Statement st = cn.createStatement();
             String consulta = "DELETE FROM componentes WHERE nombre = '" + nombre + "'";
             int filas = st.executeUpdate(consulta);
+
+            if (filas > 0) {
+                result = true; // se borró al menos un componente
+            }
+
             System.out.println("Componente borrado. Filas afectadas: " + filas);
             st.close();
         } catch (SQLException e) {
-            System.out.println("Error al borrar componente");
-            e.printStackTrace();
+        System.out.println("Error al borrar componente");
+        e.printStackTrace();
         }
-    }
+
+        return result;
+}
+
 }
 

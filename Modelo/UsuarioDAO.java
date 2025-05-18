@@ -53,5 +53,26 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
+
+    public static boolean esAdmin(Connection cn, String user) {
+        boolean result=false;
+        try {
+            
+            Statement st = cn.createStatement();
+            String consulta = "SELECT admin FROM usuarios WHERE user = '" + user + "'";
+            ResultSet rs = st.executeQuery(consulta);
+
+            if (rs.next()) {
+            result= rs.getBoolean("admin");
+            }
+
+        rs.close();
+        st.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return result;
+}
+
 }
 

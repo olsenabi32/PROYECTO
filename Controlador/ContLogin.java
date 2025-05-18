@@ -38,7 +38,7 @@ public class ContLogin {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
                     vistaLogin.cerrarVentana();
                     vistaMenu.mostrarVentana();
-                    new ControladorMenu(vistaMenu, new VistaResumenCompras(), new VistaComponentes());
+                    new ControladorMenu(vistaMenu, new VistaResumenCompras(), new VistaComponentes(),new VistaMenuAdmin(), user);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta");
                 }
