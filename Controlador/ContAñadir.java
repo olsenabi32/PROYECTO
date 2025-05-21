@@ -7,9 +7,9 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class ContAñadir {
-public ComponenteDAO componenteDAO;
     
     public ContAñadir(VistaAñadirComp vistaAñadirComp, VistaMenuAdmin vistaMenuAdmin) {
+
         vistaAñadirComp.btnVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -21,15 +21,33 @@ public ComponenteDAO componenteDAO;
         vistaAñadirComp.btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+            try{
                 String nombre = vistaAñadirComp.campoNombre.getText();
                 String tipo = vistaAñadirComp.campoTipo.getText();
                 String compatible = vistaAñadirComp.campoCompatible.getText();
+                if (compatible.isEmpty()) {
+                        compatible = null; 
+                }
                 double precio = Double.parseDouble(vistaAñadirComp.campoPrecio.getText());
                 int stock = Integer.parseInt(vistaAñadirComp.campoStock.getText());
 
                 Connection cn = ConexionBD.conectar();
-                componenteDAO.insertarComponente(cn, nombre, tipo, compatible, precio, stock);
+                if(new ComponenteDAO().insertarComponente(cn, nombre, tipo, compatible, precio, stock)){
+
                 JOptionPane.showMessageDialog(null, "Componente añadido con éxito");
+            
+                vistaAñadirComp.campoNombre.setText("");
+                vistaAñadirComp.campoTipo.setText("");
+                vistaAñadirComp.campoCompatible.setText("");
+                vistaAñadirComp.campoPrecio.setText("");
+                vistaAñadirComp.campoStock.setText("");}
+                else{
+                    JOptionPane.showMessageDialog(null, "No se ha podido añadir el componente");}
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al registrar: " + ex.getMessage());
+                }
             }
         });
     }

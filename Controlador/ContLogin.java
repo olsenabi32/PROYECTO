@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 public class ContLogin {
 
 
-    public ContLogin(VistaLogin vistaLogin, VistaInicioMenu vistaMenu,VistaInicioSesion vistaInicioSesion) {
+    public ContLogin(VistaLogin vistaLogin, VistaInicioMenu vistaMenu,VistaInicioSesion vistaInicioSesion, VistaComponentes vistaComponentes, 
+    VistaResumenCompras vistaResumenCompras,VistaMenuAdmin vistaMenuAdmin) {
         vistaLogin.mostrarVentana();
 
         vistaLogin.btnVolver.addActionListener(new ActionListener() {
@@ -33,13 +34,13 @@ public class ContLogin {
 
                 Connection cn = ConexionBD.conectar();
 
-
                 if (UsuarioDAO.buscarUsuario(cn, user, contraseña)) {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
                     vistaLogin.cerrarVentana();
                     vistaMenu.mostrarVentana();
-                    new ControladorMenu(vistaMenu, new VistaResumenCompras(), new VistaComponentes(),new VistaMenuAdmin(), user);
+                    new ControladorMenu(new VistaInicioSesion(),vistaMenu, vistaResumenCompras, vistaComponentes,vistaMenuAdmin, user);
                 } else {
+
                     JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta");
                 }
             }

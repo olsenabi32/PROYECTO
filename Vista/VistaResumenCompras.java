@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class VistaResumenCompras {
 
-    private JFrame ventana;
+    public JFrame ventana;
     public JButton btnVolver;
+    public JLabel areaBlanca;
 
     public VistaResumenCompras() {
         initialize();
@@ -26,10 +27,7 @@ public class VistaResumenCompras {
         ventana.getContentPane().add(titulo);
 
         // Espacio en blanco (solo de ejemplo)
-        JTextArea areaBlanca = new JTextArea();
-        areaBlanca.setBounds(100, 150, 600, 250);
-        areaBlanca.setEditable(false); // para que no se pueda escribir aún
-        ventana.getContentPane().add(areaBlanca);
+        
 
         btnVolver = new JButton("Volver");
         btnVolver.setFont(new Font("Arial", Font.PLAIN, 22));

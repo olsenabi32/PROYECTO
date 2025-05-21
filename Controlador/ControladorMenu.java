@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 public class ControladorMenu {
 
 
-    public ControladorMenu(VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuarioLogueado) {
+    public ControladorMenu(VistaInicioSesion vistainiciomenu,VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuario) {
 
-        vistaMenu.setNombreUsuario(usuarioLogueado);
+        vistaMenu.setNombreUsuario(usuario);
 
         vistaMenu.mostrarVentana();
 
@@ -24,7 +24,7 @@ public class ControladorMenu {
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
                 vistaResumenCompras.mostrarVentana();
-                new ContCompras(vistaResumenCompras, vistaMenu);
+                new ContResumenComp(vistaResumenCompras, vistaMenu, usuario);
             }
         });
 
@@ -33,7 +33,7 @@ public class ControladorMenu {
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
                 vistaComponentes.mostrarVentana();
-                new ContComponenetes(vistaComponentes, vistaMenu);
+                new ContComponenetes(vistaComponentes, vistaMenu, usuario);
             }
         });
 
@@ -41,13 +41,22 @@ public class ControladorMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Connection cn = ConexionBD.conectar();
-                if (UsuarioDAO.esAdmin(cn, usuarioLogueado)) {
+                if (UsuarioDAO.esAdmin(cn, usuario)) {
                     vistaMenu.cerrarVentana();
                     vistaAdmin.mostrarVentana();
-                    new ContMenuAdmin(vistaMenu, vistaAdmin, new VistaBorrarComp(),new VistaAñadirComp(), usuarioLogueado);
+                    new ContMenuAdmin(vistaMenu, vistaAdmin, new VistaBorrarComp(),new VistaAñadirComp(), usuario);
                 } else {
                     JOptionPane.showMessageDialog(null, "No estás autorizada para acceder a esta función.");
                 }
+            }
+        });
+
+        vistaMenu.btnVolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vistaMenu.cerrarVentana();
+                new ContInicioSesion().iniciar(new VistaInicioSesion(), new VistaLogin(), new VistaRegistro(), 
+                        new VistaInicioMenu(), new VistaComponentes(), new VistaResumenCompras(), new VistaMenuAdmin());
             }
         });
 

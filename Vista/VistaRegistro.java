@@ -96,7 +96,7 @@ public class VistaRegistro {
 
         btnVolver = new JButton("Volver");
         btnVolver.setFont(new Font("Arial", Font.PLAIN, 18));
-        btnVolver.setBounds(630, 480, 120, 40); // Posición abajo a la derecha
+        btnVolver.setBounds(630, 480, 120, 40); 
         ventana.getContentPane().add(btnVolver);
 
     }

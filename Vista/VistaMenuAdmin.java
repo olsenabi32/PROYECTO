@@ -10,6 +10,7 @@ public class VistaMenuAdmin {
     public JButton btnBorrar;
     public JButton btnAñadir;
     public JButton btnVolver;
+    public JButton btnActualizar;
 
     public VistaMenuAdmin() {
         initialize();
@@ -37,10 +38,17 @@ public class VistaMenuAdmin {
         btnAñadir.setBounds(250, 280, 300, 60);
         btnAñadir.setFont(new Font("Arial", Font.PLAIN, 22));
         ventana.getContentPane().add(btnAñadir);
+        
+
+        btnActualizar = new JButton("Actualizar Componente");
+        btnActualizar.setBounds(250, 360, 300, 60);
+        btnActualizar.setFont(new Font("Arial", Font.PLAIN, 22));
+        ventana.getContentPane().add(btnActualizar);
+
 
         btnVolver = new JButton("Volver");
         btnVolver.setFont(new Font("Arial", Font.PLAIN, 18));
-        btnVolver.setBounds(630, 480, 120, 40); // posición abajo a la derecha
+        btnVolver.setBounds(630, 480, 120, 40); 
         ventana.getContentPane().add(btnVolver);
     }
 

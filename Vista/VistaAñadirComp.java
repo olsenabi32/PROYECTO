@@ -101,6 +101,8 @@ import java.awt.Font;
         btnVolver.setBounds(630, 480, 120, 40);
         ventana.getContentPane().add(btnVolver);
 
+        
+
     }
 
     public void mostrarVentana() {

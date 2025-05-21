@@ -5,7 +5,6 @@ import Modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ContMenuAdmin {
@@ -18,7 +17,7 @@ public class ContMenuAdmin {
         vistaMenuAdmin.btnBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vistaMenu.cerrarVentana();
+                vistaMenuAdmin.cerrarVentana();
                 vistaBorrar.mostrarVentana();
                 new ContBorrar(vistaBorrar, vistaMenuAdmin);
             }
@@ -27,9 +26,19 @@ public class ContMenuAdmin {
         vistaMenuAdmin.btnAñadir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vistaMenu.cerrarVentana();
+                vistaMenuAdmin.cerrarVentana();
                 vistaAñadir.mostrarVentana();
                 new ContAñadir(vistaAñadir, vistaMenuAdmin);
+            }
+        });
+
+        vistaMenuAdmin.btnActualizar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vistaMenuAdmin.cerrarVentana();
+                VistaActualizaComp vistaActualizaComp = new VistaActualizaComp();
+                vistaActualizaComp.mostrarVentana();
+                new ContActualizComp(vistaActualizaComp, vistaMenuAdmin);
             }
         });
 
@@ -40,6 +49,8 @@ public class ContMenuAdmin {
                 vistaMenu.mostrarVentana();
             }
         });
+
+        
 
     }
 }

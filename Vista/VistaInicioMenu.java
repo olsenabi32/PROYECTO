@@ -11,6 +11,7 @@ public class VistaInicioMenu {
     public JButton btnComprarcomp;
     public JButton btnAdministrar;
     public JLabel etiquetaUsuario;
+    public JButton btnVolver;
 
     public VistaInicioMenu() {
         initialize();
@@ -48,6 +49,12 @@ public class VistaInicioMenu {
         etiquetaUsuario.setBounds(20, 20, 300, 30); // Esquina superior izquierda
         etiquetaUsuario.setFont(new Font("Arial", Font.PLAIN, 15));
         ventana.getContentPane().add(etiquetaUsuario);
+
+        btnVolver = new JButton("Volver");
+        btnVolver.setFont(new Font("Arial", Font.PLAIN, 18));
+        btnVolver.setBounds(630, 480, 120, 40); // posición abajo a la derecha
+        ventana.getContentPane().add(btnVolver);
+
 
     }
 
