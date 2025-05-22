@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class ContComponenetes {
@@ -53,17 +54,18 @@ public class ContComponenetes {
                         JOptionPane.showMessageDialog(null,"Componentes no compatibles");
                     } else{
                         
-                        String[] componentes = {placa, procesador, ram, disco, grafica, fuente, caja, refrigeracion};
+                        String[] componentes={placa, procesador, ram, disco, grafica, fuente, caja, refrigeracion};
                         precioTotal = componenteDAO.calcularPrecioTotal(cn, componentes);
 
-                        vistaComponenetes.lblPrecio = new JLabel("Total: " + precioTotal + " €");
+                        vistaComponenetes.lblPrecio.setText("Precio: " + precioTotal + " €");
+                        vistaComponenetes.lblPrecio.setFont(new Font("Arial", Font.BOLD, 20)); 
                         vistaComponenetes.lblPrecio.setVisible(true);
+                
                         vistaComponenetes.btnComprar.setVisible(true);
-                        vistaComponenetes.lblPrecio.setBounds(50, 300, 200, 30);
                         
                     }
 
-                    JOptionPane.showMessageDialog(null,"Componentes añadidos con éxito");
+                    JOptionPane.showMessageDialog(null,"Componentes compatibles");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al confirmar: " + ex.getMessage());
                 }
@@ -75,23 +77,27 @@ public class ContComponenetes {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    String resumenComponentes = "" + placa + ", " + procesador + ", " +ram + ", " + disco + ", " + grafica + ", " + fuente + ", " + caja + ", " + refrigeracion;
-
+                    String resumenComponentes = ""+placa+ "," +procesador+ "," +ram+ ","+disco+","+grafica+","+ fuente+","+ caja +","+refrigeracion;
                     Connection cn = ConexionBD.conectar();
-                    if(new CompraDAO().insertarCompra(cn, precioTotal, user, resumenComponentes)){
-                        componenteDAO.restarStock(cn, placa);
-                        componenteDAO.restarStock(cn, procesador);    
-                        componenteDAO.restarStock(cn, ram);
-                        componenteDAO.restarStock(cn, disco);
-                        componenteDAO.restarStock(cn, grafica);
-                        componenteDAO.restarStock(cn, fuente);
-                        componenteDAO.restarStock(cn, caja);
-                        componenteDAO.restarStock(cn, refrigeracion);
-                        
+                    String[] componentes={placa, procesador, ram, disco, grafica, fuente, caja, refrigeracion};
+                    boolean todoRestadoCorrectamente = true;
+
+                if(new CompraDAO().insertarCompra(cn, precioTotal, user, resumenComponentes)){
+                    for (String componente : componentes) {
+                        boolean restado = componenteDAO.restarStock(cn, componente);
+                            
+                        if (!restado) {
+                            JOptionPane.showMessageDialog(null, "No se ha restado correctamente el stock del componente: " + componente);
+                            todoRestadoCorrectamente = false;
+                        }
+                    }
+                    
+                    if(todoRestadoCorrectamente){
                         JOptionPane.showMessageDialog(null,"Compra realizada con éxito");
                     } else {
                         JOptionPane.showMessageDialog(null,"No se ha podido realizar la compra");
                     }
+                }
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al comprar: " + ex.getMessage());

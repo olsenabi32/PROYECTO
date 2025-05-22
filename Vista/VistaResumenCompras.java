@@ -7,7 +7,7 @@ public class VistaResumenCompras {
 
     public JFrame ventana;
     public JButton btnVolver;
-    public JLabel areaBlanca;
+    public JTextArea areaBlanca;
 
     public VistaResumenCompras() {
         initialize();
@@ -26,7 +26,18 @@ public class VistaResumenCompras {
         titulo.setHorizontalAlignment(JLabel.CENTER);
         ventana.getContentPane().add(titulo);
 
-        // Espacio en blanco (solo de ejemplo)
+        // Creamos el área de texto
+        areaBlanca = new JTextArea();
+        areaBlanca.setEditable(false); // Para que el usuario no pueda escribir
+        areaBlanca.setFont(new Font("Arial", Font.PLAIN, 18)); // Tamaño y tipo de letra
+        areaBlanca.setLineWrap(true); // Que salte de línea si se pasa del ancho
+        areaBlanca.setWrapStyleWord(true); // Que no corte palabras a la mitad
+
+        // Creamos el scroll y lo metemos dentro
+        JScrollPane scroll = new JScrollPane(areaBlanca);
+        scroll.setBounds(100, 150, 600, 250); // Tamaño y posición del scroll (no del JTextArea)
+        ventana.getContentPane().add(scroll);
+
         
 
         btnVolver = new JButton("Volver");

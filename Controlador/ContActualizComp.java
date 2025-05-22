@@ -5,12 +5,19 @@ import Modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+import java.sql.Connection;
+
 import javax.swing.JOptionPane;
 
 public class ContActualizComp {
 
     public ContActualizComp(VistaActualizaComp vistaActualizaComp, VistaMenuAdmin vistaMenuAdmin) {
+
+        Connection cn = ConexionBD.conectar();
+        ComponenteDAO componenteDAO = new ComponenteDAO();
+        String alamacen= componenteDAO.mostrarAlmacen(cn);
+        vistaActualizaComp.almacenArea.setText(alamacen);
+        vistaActualizaComp.almacenArea.setEditable(false); 
 
         vistaActualizaComp.btnActualizar.addActionListener(new ActionListener() {
             @Override

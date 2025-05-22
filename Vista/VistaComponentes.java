@@ -60,7 +60,7 @@ public class VistaComponentes {
         comboProcesador = new JComboBox<>();
         comboProcesador.setBounds(450, 180, 350, 30);
         comboProcesador.setFont(new Font("Arial", Font.PLAIN, 16));
-        comboProcesador.addItem("Intel i5-11400F");
+        comboProcesador.addItem("Intel i5 11400F");
         comboProcesador.addItem("AMD Ryzen 5 5600X");
         comboProcesador.addItem("Intel i7-12700K");
         ventana.getContentPane().add(comboProcesador);
@@ -113,7 +113,7 @@ public class VistaComponentes {
         comboFuente = new JComboBox<>();
         comboFuente.setBounds(450, 420, 350, 30);
         comboFuente.setFont(new Font("Arial", Font.PLAIN, 16));
-        comboFuente.addItem("650W Bronz");
+        comboFuente.addItem("650W Bronze");
         comboFuente.addItem("750W Gold");
         comboFuente.addItem("850W Modular");
         ventana.getContentPane().add(comboFuente);
@@ -155,17 +155,17 @@ public class VistaComponentes {
         btnVolver.setFont(new Font("Arial", Font.PLAIN, 20));
         ventana.getContentPane().add(btnVolver);
 
+        lblPrecio = new JLabel("Precio: ");
+        lblPrecio.setFont(new Font("Arial", Font.BOLD, 22));
+        lblPrecio.setBounds(1000, 360, 300, 30); // Justo debajo del último combo o antes del botón
+        lblPrecio.setVisible(false); // Lo ocultamos de entrada
+        ventana.getContentPane().add(lblPrecio);
+
         btnComprar = new JButton("Comprar");
-        btnComprar.setBounds(450, 680, 250, 50);
+        btnComprar.setBounds(1000, 400, 250, 40);
         btnComprar.setFont(new Font("Arial", Font.PLAIN, 18));
         btnComprar.setVisible(false);
         ventana.getContentPane().add(btnComprar);
-
-        lblPrecio = new JLabel("Total: ");
-        lblPrecio.setFont(new Font("Arial", Font.PLAIN, 20));
-        lblPrecio.setBounds(450, 740, 250, 30);
-        lblPrecio.setVisible(false);
-        ventana.getContentPane().add(lblPrecio);
 
     }
 

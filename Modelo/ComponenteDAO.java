@@ -2,6 +2,8 @@ package Modelo;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class ComponenteDAO {
 
     public boolean insertarComponente(Connection cn, String nombre, String tipo, String compatibleCon, double precio, int stock) {
@@ -123,21 +125,61 @@ public class ComponenteDAO {
 }
 
     public boolean restarStock(Connection cn, String componente) {
-        boolean result = true;
+    boolean result = false;
+    try {
+        // Comprobamos el stock actual
+        String consulta1 = "SELECT stock FROM componentes WHERE nombre = '" + componente + "'";
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(consulta1);
+
+        if (rs.next()) {
+            int stockActual = rs.getInt("stock");
+
+            if (stockActual > 0) {
+                String consulta2 = "UPDATE componentes SET stock = stock - 1 WHERE nombre = '" + componente + "'";
+                int filas = st.executeUpdate(consulta2); 
+
+                if (filas > 0) {
+                    result = true;
+                }
+            } else {
+                // No hay stock suficiente
+                JOptionPane.showMessageDialog(null, "No queda stock del componente: " + componente);
+            }
+        }
+
+        rs.close();
+        st.close();
+
+        } catch (SQLException e) {
+        System.out.println("Error al restar stock");
+        e.printStackTrace();
+    }
+
+
+    return result;
+}
+
+
+    public String mostrarAlmacen(Connection cn) {
+        String componente = "";
         try {
             Statement st = cn.createStatement();
-            String consulta = "UPDATE componentes SET stock = stock - 1 WHERE nombre = '" + componente + "'";
-            int filas = st.executeUpdate(consulta);
-            if (filas == 0) {
-                result = false;
+            String consulta = "SELECT nombre, stock FROM componentes;";
+            ResultSet rs = st.executeQuery(consulta);
+
+            while(rs.next()) {
+                componente+= "Nombre: " + rs.getString("nombre") + ", Stock: " + rs.getInt("stock")+"\n";
             }
+
+            rs.close();
             st.close();
         } catch (SQLException e) {
-            System.out.println("Error al restar stock");
+            System.out.println("Error al mostrar componente por nombre");
             e.printStackTrace();
         }
-        return result;
-        }
+        return componente;
+    }
 
     public boolean actualizarComponente(String nombre, int stock) {
         boolean result = true;
