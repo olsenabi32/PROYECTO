@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 public class ComponenteDAO {
 
 
-
     /**
      * Método insertarComponente.
      * @return resultado del método o acción realizada.

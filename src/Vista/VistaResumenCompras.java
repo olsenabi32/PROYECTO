@@ -46,7 +46,6 @@ public class VistaResumenCompras {
         scroll.setBounds(100, 150, 600, 250); // Tamaño y posición del scroll (no del JTextArea)
         ventana.getContentPane().add(scroll);
 
-        
 
         btnVolver = new JButton("Volver");
         btnVolver.setFont(new Font("Arial", Font.PLAIN, 22));

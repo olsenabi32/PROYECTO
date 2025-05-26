@@ -85,6 +85,7 @@ public class ControladorMenu {
              */
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
+                
                 new ContInicioSesion().iniciar(new VistaInicioSesion(), new VistaLogin(), new VistaRegistro(), 
                         new VistaInicioMenu(), new VistaComponentes(), new VistaResumenCompras(), new VistaMenuAdmin());
             }

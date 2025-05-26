@@ -89,8 +89,6 @@ public class VistaActualizaComp {
     
 }   
 
-
-
     /**
      * Muestra la ventana.
      */
@@ -105,7 +103,6 @@ public class VistaActualizaComp {
         ventana.dispose();
     }
 
-   
     public static void main(String[] args) {
         VistaActualizaComp vista = new VistaActualizaComp();
         vista.mostrarVentana();

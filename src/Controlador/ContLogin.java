@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 
 public class ContLogin {
 
-
     public ContLogin(VistaLogin vistaLogin, VistaInicioMenu vistaMenu,VistaInicioSesion vistaInicioSesion, VistaComponentes vistaComponentes, 
     VistaResumenCompras vistaResumenCompras,VistaMenuAdmin vistaMenuAdmin) {
         vistaLogin.mostrarVentana();
