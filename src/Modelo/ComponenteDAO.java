@@ -13,9 +13,9 @@ public class ComponenteDAO {
 
 
     /**
- * Método insertarComponente.
- * @return resultado del método o acción realizada.
- */
+     * Método insertarComponente.
+     * @return resultado del método o acción realizada.
+     */
     public boolean insertarComponente(Connection cn, String nombre, String tipo, String compatibleCon, double precio, int stock) {
         boolean result = true;
         try {
