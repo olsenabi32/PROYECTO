@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lenguajes de Marcas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #7c0799dd;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            background-color: #d029e2c9;
+            overflow: hidden;
+            margin: 0;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #73086c71;
+        }
+        main {
+            padding: 20px;
+        }
+        a.enlace-descarga {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #4ec30bc0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        a.enlace-descarga:hover {
+            background-color: #071ea0;
+        }
+
+        header h1:hover {
+            color: black;
+        }
+
+        main h1:hover {
+            color: #e532ec;
+        }
+        .animar { 
+            transform: translate(10px, -10px); 
+            transition: transform 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lenguajes de Marcas</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ED.html">Entornos</a></li>
+            <li><a href="LM.html">Lenguajes de Marcas</a></li>
+            <li><a href="BD.html">Base de Datos</a></li>
+            <li><a href="Programacion.html">Programación</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>JavaDoc en el Proyecto</h2>
+
+        <p>Para documentar el código del proyecto, utilicé JavaDoc, que genera automáticamente páginas HTML a partir de los comentarios del código.
+            <br>Usé etiquetas como <b>@param</b> para describir los parámetros de cada método, y <b>@return</b> para explicar qué devuelve un método.
+            Esto permite tener una documentación clara, navegable y profesional del proyecto.</p>
+
+        <a href="../LM/doc/index.html" class="enlace-descarga" target="_blank" id="botonJavadoc"> Ver JavaDoc Generado</a>
+
+        <h2>Creación de Archivos XML</h2>
+        <p>En el proyecto también generé archivos XML para guardar las compras de cada usuario.
+            Cada archivo tiene un nodo raíz &lt;compras&gt;, <br> y dentro contiene varios nodos &lt;compra&gt; 
+            que incluyen la información del usuario, el precio total y los componentes comprados.</p>
+            
+        <a href="../LM/olga.xml" class="enlace-descarga" target="_blank" id="botonXML"> Ver XML de Ejemplo </a>
+    </main>
+
+    <script>
+        document.getElementById('botonJavadoc').addEventListener('click', function() {
+            alert('¡Gracias por consultar mi JavaDoc!');
+        });
+        document.getElementById('botonXML').addEventListener('click', function() {
+            alert('¡Gracias por revisar mi XML!');
+        });
+
+        document.querySelectorAll('h1, h2').forEach(t => {
+            t.addEventListener('click', function() {
+                t.classList.add('animar');
+                setTimeout(() => { t.classList.remove('animar'); }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

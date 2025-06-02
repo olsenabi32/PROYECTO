@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Programación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #7c0799dd;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            background-color: #d029e2c9;
+            overflow: hidden;
+            margin: 0;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #73086c71;
+        }
+        main {
+            padding: 20px;
+        }
+        a.enlace-descarga {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #4ec30bc0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        a.enlace-descarga:hover {
+            background-color: #071ea0;
+        }
+
+        header h1:hover{
+            color: black;
+        }
+
+        main h1:hover {
+            color: #e532ec;
+        }
+
+        .animar { 
+            transform: translate(10px, -10px); 
+            transition: transform 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programación</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ED.html">Entornos</a></li>
+            <li><a href="LM.html">Lenguajes de Marcas</a></li>
+            <li><a href="BD.html">Base de Datos</a></li>
+            <li><a href="Programacion.html">Programación</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Resumen del Proyecto de Programación</h1>
+
+        <p>En esta sección encontrarás el resumen del proyecto Java desarrollado a lo largo del curso.
+            El proyecto incluye gestión de componentes, usuarios, compras, y conexión a base de datos.<br>
+            El código está organizado en paquetes y clases, siguiendo las mejores prácticas de programación.
+            Aquí puedes acceder al código fuente completo y explorarlo.</p>
+
+        <p>Haz clic en el botón para descargar la carpeta del proyecto:</p>
+
+        <a href="https://drive.google.com/drive/folders/1GoYSPw5nG6VxqqP02CGHDvj_J14jk1Xz?usp=drive_link" class="enlace-descarga" 
+        target="_blank" id="botonDescarga"> Accede a la carpeta de Programación</a>
+        
+    </main>
+
+    <script>
+        document.getElementById('botonDescarga').addEventListener('click', function() {
+            alert('¡Gracias por descargar mi código!');
+        });
+
+        document.querySelectorAll('h1, h2').forEach(t => {
+            t.addEventListener('click', function() {
+                t.classList.add('animar');
+                setTimeout(() => { t.classList.remove('animar'); }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

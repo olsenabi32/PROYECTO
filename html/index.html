@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #7c0799dd;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            background-color: #d029e2c9;
+            overflow: hidden;
+            margin: 0;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #73086c71;
+        }
+        main {
+            padding: 20px;
+            
+        }
+        main p {
+            font-size: 18px;
+        }
+        main h1 {
+            font-size: 36px;
+        }
+
+        header h1:hover{
+            color: black;
+        }
+        main h1:hover { color: #e532ec; }
+        .animar { 
+            transform: translate(10px, -10px); 
+            transition: transform 0.3s ease; 
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resumen del Proyecto Final</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ED.html">Entornos</a></li>
+            <li><a href="LM.html">Lenguajes de Marcas</a></li>
+            <li><a href="BD.html">Base de Datos</a></li>
+            <li><a href="Programacion.html">Programación</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Bienvenid@</h1>
+        
+        <p>En esta página encontrarás un resumen completo de todas las actividades realizadas durante el curso.
+            Podrás navegar entre las secciones de Programación, Base de Datos, Entornos de Desarrollo y Lenguajes de Marcas,
+            explorando los materiales, explicaciones, ejemplos y enlaces relevantes de cada bloque.</p>
+
+        <p>Usa el menú superior para acceder a cada sección. ¡Espero que disfrutes explorando mi trabajo!</p>
+    </main>
+
+    <script>
+        document.querySelectorAll('h1, h2').forEach(t => {
+            t.addEventListener('click', function() {
+                t.classList.add('animar');
+                setTimeout(() => { t.classList.remove('animar'); }, 300);
+            });
+        });
+    </script>
+
+</body>
+</html>

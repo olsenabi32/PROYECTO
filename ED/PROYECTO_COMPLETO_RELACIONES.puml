@@ -1,0 +1,298 @@
+@startuml
+class App {
+    public static void main(String[] args) {
+}
+class ContActualizComp {
+    public ContActualizComp(VistaActualizaComp vistaActualizaComp, VistaMenuAdmin vistaMenuAdmin) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContAñadir {
+    public ContAñadir(VistaAñadirComp vistaAñadirComp, VistaMenuAdmin vistaMenuAdmin) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContBorrar {
+    public ComponenteDAO componenteDAO;
+    public ContBorrar(VistaBorrarComp vistaBorrarComp, VistaMenuAdmin vistaMenuAdmin) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContComponenetes {
+    public ContComponenetes(VistaComponentes vistaComponenetes,VistaInicioMenu vistaInicioMenu,String user) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContInicioSesion {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContLogin {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContMenuAdmin {
+    public ContMenuAdmin(VistaInicioMenu vistaMenu,VistaMenuAdmin vistaMenuAdmin, VistaBorrarComp vistaBorrar, VistaAñadirComp vistaAñadir, String usuario) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContRegistro {
+    public ContRegistro(VistaRegistro vistaRegistro, VistaInicioSesion vistaInicioSesion, VistaInicioMenu vistaInicioMenu) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ContResumenComp {
+    public ContResumenComp(VistaResumenCompras vistaCompras, VistaInicioMenu vistaInicioMenu,String usuario) {
+    public void actionPerformed(ActionEvent e) {
+}
+class ControladorMenu {
+    public ControladorMenu(VistaInicioSesion vistainiciomenu,VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuario) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+}
+class package-info {
+}
+class ComponenteDAO {
+    public boolean insertarComponente(Connection cn, String nombre, String tipo, String compatibleCon, double precio, int stock) {
+    public void mostrarComponente(Connection cn) {
+    public void actualizarStock(Connection cn, String nombre, int nuevoStock) {
+    public static boolean borrarComponente(Connection cn, String nombre) {
+    public double calcularPrecioTotal(Connection cn, String[] componentes) {
+    public boolean restarStock(Connection cn, String componente) {
+    public String mostrarAlmacen(Connection cn) {
+    public boolean actualizarComponente(String nombre, int stock) {
+}
+class CompraDAO {
+    public boolean insertarCompra(Connection cn, double precioTotal, String user,String resumenComponentes) {
+    public String mostrarCompraSegunUser(Connection cn, String user) {
+    public boolean  borrarCompra(Connection cn, int idCompra) {
+    public void crearXML(String usuario, double precio, String[] componentes) {
+}
+class ConexionBD {
+    public static Connection conectar() {
+}
+class package-info {
+}
+class UsuarioDAO {
+    public static void insertarUsuario(Connection cn, String user, String nombre, String apellidos, String email, String contraseña) {
+    public static boolean buscarUsuario(Connection cn, String user, String contraseña) {
+    public static void borrarUsuario(Connection cn, String user) {
+    public static boolean esAdmin(Connection cn, String user) {
+}
+class package-info {
+}
+class VistaActualizaComp {
+    private JFrame ventana;
+    public JTextField campoNombre;
+    public JTextField campoStock;
+    public JButton btnActualizar;
+    public JButton btnVolver;
+    public JTextArea almacenArea;
+    public  VistaActualizaComp() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaAñadirComp {
+    private JFrame ventana;
+    public JTextField campoNombre;
+    public JTextField campoTipo;
+    public JTextField campoCompatible;
+    public JTextField campoPrecio;
+    public JTextField campoStock;
+    public JButton btnRegistrar;
+    public JButton btnVolver;
+    public VistaAñadirComp() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaBorrarComp {
+    private JFrame ventana;
+    public JTextField campoNombre2;
+    public JTextField campoTipo;
+    public JButton btnBorrar;
+    public JButton btnVolver;
+    public VistaBorrarComp() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaComponentes {
+    public JFrame ventana;
+    public JComboBox<String> comboPlacas;
+    public JComboBox<String> comboProcesador;
+    public JComboBox<String> comboRAM;
+    public JComboBox<String> comboDisco;
+    public JComboBox<String> comboGrafica;
+    public JComboBox<String> comboFuente;
+    public JComboBox<String> comboCaja;
+    public JComboBox<String> comboRefrigeracion;
+    public JLabel lblPrecio;
+    public JButton btnComprar;
+    public JButton btnConfirmar;
+    public JButton btnVolver;
+    public VistaComponentes() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaInicioMenu {
+    private JFrame ventana;
+    public JButton btnVerCompras;
+    public JButton btnComprarcomp;
+    public JButton btnAdministrar;
+    public JLabel etiquetaUsuario;
+    public JButton btnVolver;
+    public VistaInicioMenu() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public void setNombreUsuario(String nombre) {
+    public static void main(String[] args) {
+}
+class VistaInicioSesion {
+    private JFrame ventana;
+    public JButton btnLogin;
+    public JButton btnRegistro;
+    public VistaInicioSesion() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaLogin {
+    private JFrame ventana;
+    public JButton btnEntrar;
+    public JButton btnVolver;
+    public JTextField campoUsuario;
+    public JPasswordField campoContraseña;
+    public VistaLogin() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaMenuAdmin {
+    private JFrame ventana;
+    public JButton btnBorrar;
+    public JButton btnAñadir;
+    public JButton btnVolver;
+    public JButton btnActualizar;
+    public VistaMenuAdmin() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaRegistro {
+    private JFrame ventana;
+    public JTextField campoUsuario;
+    public JPasswordField campoContraseña;
+    public JTextField campoNombre;
+    public JTextField campoApellidos;
+    public JTextField campoCorreo;
+    public JButton btnRegistrar;
+    public JButton btnVolver;
+    public VistaRegistro() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+class VistaResumenCompras {
+    public JFrame ventana;
+    public JButton btnVolver;
+    public JTextArea areaBlanca;
+    public VistaResumenCompras() {
+    public void initialize() {
+    public void mostrarVentana() {
+    public void cerrarVentana() {
+    public static void main(String[] args) {
+}
+App --> ContInicioSesion
+App --> VistaComponentes
+App --> VistaInicioMenu
+App --> VistaInicioSesion
+App --> VistaLogin
+App --> VistaMenuAdmin
+App --> VistaRegistro
+App --> VistaResumenCompras
+ContActualizComp --> ComponenteDAO
+ContActualizComp --> ConexionBD
+ContActualizComp --> VistaActualizaComp
+ContActualizComp --> VistaMenuAdmin
+ContAñadir --> ComponenteDAO
+ContAñadir --> ConexionBD
+ContAñadir --> VistaAñadirComp
+ContAñadir --> VistaMenuAdmin
+ContBorrar --> ComponenteDAO
+ContBorrar --> ConexionBD
+ContBorrar --> VistaBorrarComp
+ContBorrar --> VistaMenuAdmin
+ContComponenetes --> ComponenteDAO
+ContComponenetes --> CompraDAO
+ContComponenetes --> ConexionBD
+ContComponenetes --> VistaComponentes
+ContComponenetes --> VistaInicioMenu
+ContInicioSesion --> ContLogin
+ContInicioSesion --> ContRegistro
+ContInicioSesion --> VistaComponentes
+ContInicioSesion --> VistaInicioMenu
+ContInicioSesion --> VistaInicioSesion
+ContInicioSesion --> VistaLogin
+ContInicioSesion --> VistaMenuAdmin
+ContInicioSesion --> VistaRegistro
+ContInicioSesion --> VistaResumenCompras
+ContLogin --> ControladorMenu
+ContLogin --> ConexionBD
+ContLogin --> UsuarioDAO
+ContLogin --> VistaComponentes
+ContLogin --> VistaInicioMenu
+ContLogin --> VistaInicioSesion
+ContLogin --> VistaLogin
+ContLogin --> VistaMenuAdmin
+ContLogin --> VistaResumenCompras
+ContMenuAdmin --> ContActualizComp
+ContMenuAdmin --> ContAñadir
+ContMenuAdmin --> ContBorrar
+ContMenuAdmin --> VistaActualizaComp
+ContMenuAdmin --> VistaAñadirComp
+ContMenuAdmin --> VistaBorrarComp
+ContMenuAdmin --> VistaInicioMenu
+ContMenuAdmin --> VistaMenuAdmin
+ContRegistro --> ConexionBD
+ContRegistro --> UsuarioDAO
+ContRegistro --> VistaInicioMenu
+ContRegistro --> VistaInicioSesion
+ContRegistro --> VistaRegistro
+ContResumenComp --> CompraDAO
+ContResumenComp --> ConexionBD
+ContResumenComp --> VistaInicioMenu
+ContResumenComp --> VistaResumenCompras
+ControladorMenu --> ContComponenetes
+ControladorMenu --> ContInicioSesion
+ControladorMenu --> ContMenuAdmin
+ControladorMenu --> ContResumenComp
+ControladorMenu --> ConexionBD
+ControladorMenu --> UsuarioDAO
+ControladorMenu --> VistaAñadirComp
+ControladorMenu --> VistaBorrarComp
+ControladorMenu --> VistaComponentes
+ControladorMenu --> VistaInicioMenu
+ControladorMenu --> VistaInicioSesion
+ControladorMenu --> VistaLogin
+ControladorMenu --> VistaMenuAdmin
+ControladorMenu --> VistaRegistro
+ControladorMenu --> VistaResumenCompras
+ComponenteDAO --> ConexionBD
+@enduml
