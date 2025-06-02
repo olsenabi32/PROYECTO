@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class VistaInicioMenu {
+public class VistaMenuPrincipal {
 
     private JFrame ventana;
     public JButton btnVerCompras;
@@ -17,7 +17,7 @@ public class VistaInicioMenu {
     public JLabel etiquetaUsuario;
     public JButton btnVolver;
 
-    public VistaInicioMenu() {
+    public VistaMenuPrincipal() {
         initialize();
     }
 
@@ -90,7 +90,7 @@ public class VistaInicioMenu {
 
 
     public static void main(String[] args) {
-        VistaInicioMenu vista = new VistaInicioMenu();
+        VistaMenuPrincipal vista = new VistaMenuPrincipal();
         vista.mostrarVentana();
     }
 }

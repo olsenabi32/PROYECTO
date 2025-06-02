@@ -1,12 +1,12 @@
 package Controlador;
 
-import Vista.VistaInicioSesion;
+import Vista.VistaInicio;
 import Vista.VistaLogin;
 import Vista.VistaMenuAdmin;
 import Vista.VistaRegistro;
 import Vista.VistaResumenCompras;
-import Vista.VistaComponentes;
-import Vista.VistaInicioMenu;
+import Vista.VistaComprarComponentes;
+import Vista.VistaMenuPrincipal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,10 +17,10 @@ import java.awt.event.ActionListener;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ContInicioSesion {
+public class ContPrimeraVista {
 
 
-    public void iniciar(VistaInicioSesion vistaInicio, VistaLogin vistaLogin, VistaRegistro vistaRegistro, VistaInicioMenu vistaMenu, VistaComponentes vistaComponentes, VistaResumenCompras vistaResumenCompras,
+    public void iniciar(VistaInicio vistaInicio, VistaLogin vistaLogin, VistaRegistro vistaRegistro, VistaMenuPrincipal vistaMenu, VistaComprarComponentes vistaComponentes, VistaResumenCompras vistaResumenCompras,
     VistaMenuAdmin vistaMenuAdmin) {
         
         vistaInicio.mostrarVentana();

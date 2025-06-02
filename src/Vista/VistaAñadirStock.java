@@ -9,7 +9,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class VistaActualizaComp {
+public class VistaAñadirStock {
 
     private JFrame ventana;
     public JTextField campoNombre;
@@ -20,7 +20,7 @@ public class VistaActualizaComp {
     
     
 
-    public  VistaActualizaComp() {
+    public  VistaAñadirStock() {
         initialize();
     }
     /**
@@ -34,7 +34,7 @@ public class VistaActualizaComp {
         ventana.getContentPane().setLayout(null);
         ventana.getContentPane().setBackground(Color.decode("#E6CCFF"));
 
-        JLabel titulo = new JLabel("Actualizar Componente");
+        JLabel titulo = new JLabel("Añadir Stock");
         titulo.setBounds(90, 30, 500, 50);
         titulo.setFont(new Font("Arial", Font.BOLD, 40));
         titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -51,7 +51,7 @@ public class VistaActualizaComp {
         ventana.getContentPane().add(campoNombre);
 
 
-        JLabel stockLabel = new JLabel("Nuevo Stock:");
+        JLabel stockLabel = new JLabel("Añadir Stock:");
         stockLabel.setBounds(100, 270, 300, 30);
         stockLabel.setFont(new Font("Arial", Font.PLAIN, 22));
         ventana.getContentPane().add(stockLabel);
@@ -104,7 +104,7 @@ public class VistaActualizaComp {
     }
 
     public static void main(String[] args) {
-        VistaActualizaComp vista = new VistaActualizaComp();
+        VistaAñadirStock vista = new VistaAñadirStock();
         vista.mostrarVentana();
     }
 }

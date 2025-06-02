@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class ContLogin {
 
-    public ContLogin(VistaLogin vistaLogin, VistaInicioMenu vistaMenu,VistaInicioSesion vistaInicioSesion, VistaComponentes vistaComponentes, 
+    public ContLogin(VistaLogin vistaLogin, VistaMenuPrincipal vistaMenu,VistaInicio vistaInicioSesion, VistaComprarComponentes vistaComponentes, 
     VistaResumenCompras vistaResumenCompras,VistaMenuAdmin vistaMenuAdmin) {
         vistaLogin.mostrarVentana();
 
@@ -52,7 +52,7 @@ public class ContLogin {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
                     vistaLogin.cerrarVentana();
                     vistaMenu.mostrarVentana();
-                    new ControladorMenu(new VistaInicioSesion(),vistaMenu, vistaResumenCompras, vistaComponentes,vistaMenuAdmin, user);
+                    new ContMenuPrincipal(new VistaInicio(),vistaMenu, vistaResumenCompras, vistaComponentes,vistaMenuAdmin, user);
                 } else {
 
                     JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta");

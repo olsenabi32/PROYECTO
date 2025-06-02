@@ -14,7 +14,7 @@ import java.awt.*;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ContComponenetes {
+public class ContComprarComponenetes {
 
     String placa;
     String procesador;
@@ -33,7 +33,7 @@ public class ContComponenetes {
      * Método ContComponenetes.
      * Lógica asociada a esta parte del controlador.
      */
-    public ContComponenetes(VistaComponentes vistaComponenetes,VistaInicioMenu vistaInicioMenu,String user) {
+    public ContComprarComponenetes(VistaComprarComponentes vistaComponenetes,VistaMenuPrincipal vistaInicioMenu,String user) {
     
         vistaComponenetes.btnVolver.addActionListener(new ActionListener() {
             @Override
@@ -69,10 +69,7 @@ public class ContComponenetes {
                     Connection cn = ConexionBD.conectar();
                     boolean Comprobacion= componenteDAO.ComprobarCompatible(cn, placa, procesador, ram, disco, grafica, fuente, caja, refrigeracion);
 
-                    if(Comprobacion==false){
-                        JOptionPane.showMessageDialog(null,"Componentes no compatibles");
-                    } else{
-                        
+                    if(Comprobacion){
                         String[] componentes={placa, procesador, ram, disco, grafica, fuente, caja, refrigeracion};
                         precioTotal = componenteDAO.calcularPrecioTotal(cn, componentes);
 
@@ -84,7 +81,6 @@ public class ContComponenetes {
                         
                     }
 
-                    JOptionPane.showMessageDialog(null,"Componentes compatibles");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al confirmar: " + ex.getMessage());
                 }

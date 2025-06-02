@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ContBorrar {
+public class ContBorrarComponente {
 
     public ComponenteDAO componenteDAO;
 
@@ -22,7 +22,7 @@ public class ContBorrar {
      * Lógica asociada a esta parte del controlador.
      */
 
-    public ContBorrar(VistaBorrarComp vistaBorrarComp, VistaMenuAdmin vistaMenuAdmin) {
+    public ContBorrarComponente(VistaBorrarComp vistaBorrarComp, VistaMenuAdmin vistaMenuAdmin) {
         vistaBorrarComp.btnVolver.addActionListener(new ActionListener() {
             @Override
             /** 

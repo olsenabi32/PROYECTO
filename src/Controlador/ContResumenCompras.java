@@ -13,14 +13,14 @@ import javax.swing.JOptionPane;
  */
 
 
-public class ContResumenComp {
+public class ContResumenCompras {
 
     /** 
      * Método ContResumenComp.
      * Lógica asociada a esta parte del controlador.
      */
     
-    public ContResumenComp(VistaResumenCompras vistaCompras, VistaInicioMenu vistaInicioMenu,String usuario) {
+    public ContResumenCompras(VistaResumenCompras vistaCompras, VistaMenuPrincipal vistaInicioMenu,String usuario) {
 
         Connection cn = ConexionBD.conectar();
         String compras= new CompraDAO().mostrarCompraSegunUser(cn, usuario);

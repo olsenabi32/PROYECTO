@@ -1,8 +1,8 @@
 package Controlador;
 
 import Vista.VistaRegistro;
-import Vista.VistaInicioMenu;
-import Vista.VistaInicioSesion;
+import Vista.VistaMenuPrincipal;
+import Vista.VistaInicio;
 import Modelo.UsuarioDAO;
 import Modelo.ConexionBD;
 
@@ -25,7 +25,7 @@ public class ContRegistro {
      * Lógica asociada a esta parte del controlador.
      */
 
-    public ContRegistro(VistaRegistro vistaRegistro, VistaInicioSesion vistaInicioSesion, VistaInicioMenu vistaInicioMenu) {
+    public ContRegistro(VistaRegistro vistaRegistro, VistaInicio vistaInicioSesion, VistaMenuPrincipal vistaInicioMenu) {
         vistaRegistro.mostrarVentana();
 
         // Botón Volver

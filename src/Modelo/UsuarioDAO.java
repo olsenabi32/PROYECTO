@@ -72,7 +72,7 @@ public class UsuarioDAO {
  * Método esAdmin.
  * @return resultado del método o acción realizada.
  */
-    public static boolean esAdmin(Connection cn, String user) {
+    public static boolean ComprobaresAdmin(Connection cn, String user) {
         boolean result=false;
         try {
             

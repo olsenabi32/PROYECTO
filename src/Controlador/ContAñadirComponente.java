@@ -12,14 +12,14 @@ import javax.swing.JOptionPane;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ContAñadir {
+public class ContAñadirComponente {
 
     /** 
      * Método ContAñadir.
      * Lógica asociada a esta parte del controlador.
      */
     
-    public ContAñadir(VistaAñadirComp vistaAñadirComp, VistaMenuAdmin vistaMenuAdmin) {
+    public ContAñadirComponente(VistaAñadirComp vistaAñadirComp, VistaMenuAdmin vistaMenuAdmin) {
 
         vistaAñadirComp.btnVolver.addActionListener(new ActionListener() {
             @Override

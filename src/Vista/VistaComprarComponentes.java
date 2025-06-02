@@ -8,7 +8,7 @@ package Vista;
 import javax.swing.*;
 import java.awt.*;
 
-public class VistaComponentes {
+public class VistaComprarComponentes {
 
     public JFrame ventana;
     public JComboBox<String> comboPlacas;
@@ -24,7 +24,7 @@ public class VistaComponentes {
     public JButton btnConfirmar;
     public JButton btnVolver;
 
-    public VistaComponentes() {
+    public VistaComprarComponentes() {
         initialize();
     }
 
@@ -195,7 +195,7 @@ public class VistaComponentes {
     }
 
     public static void main(String[] args) {
-        VistaComponentes vista = new VistaComponentes();
+        VistaComprarComponentes vista = new VistaComprarComponentes();
         vista.mostrarVentana();
     }
 }

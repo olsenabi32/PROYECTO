@@ -19,7 +19,7 @@ public class ContMenuAdmin {
      * Lógica asociada a esta parte del controlador.
      */
 
-    public ContMenuAdmin(VistaInicioMenu vistaMenu,VistaMenuAdmin vistaMenuAdmin, VistaBorrarComp vistaBorrar, VistaAñadirComp vistaAñadir, String usuario) {
+    public ContMenuAdmin(VistaMenuPrincipal vistaMenu,VistaMenuAdmin vistaMenuAdmin, VistaBorrarComp vistaBorrar, VistaAñadirComp vistaAñadir, String usuario) {
 
         vistaMenu.setNombreUsuario(usuario);
 
@@ -33,7 +33,7 @@ public class ContMenuAdmin {
             public void actionPerformed(ActionEvent e) {
                 vistaMenuAdmin.cerrarVentana();
                 vistaBorrar.mostrarVentana();
-                new ContBorrar(vistaBorrar, vistaMenuAdmin);
+                new ContBorrarComponente(vistaBorrar, vistaMenuAdmin);
             }
         });
 
@@ -47,7 +47,7 @@ public class ContMenuAdmin {
             public void actionPerformed(ActionEvent e) {
                 vistaMenuAdmin.cerrarVentana();
                 vistaAñadir.mostrarVentana();
-                new ContAñadir(vistaAñadir, vistaMenuAdmin);
+                new ContAñadirComponente(vistaAñadir, vistaMenuAdmin);
             }
         });
 
@@ -60,9 +60,9 @@ public class ContMenuAdmin {
              */
             public void actionPerformed(ActionEvent e) {
                 vistaMenuAdmin.cerrarVentana();
-                VistaActualizaComp vistaActualizaComp = new VistaActualizaComp();
+                VistaAñadirStock vistaActualizaComp = new VistaAñadirStock();
                 vistaActualizaComp.mostrarVentana();
-                new ContActualizComp(vistaActualizaComp, vistaMenuAdmin);
+                new CompStock(vistaActualizaComp, vistaMenuAdmin);
             }
         });
 

@@ -16,14 +16,14 @@ import javax.swing.JOptionPane;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ControladorMenu {
+public class ContMenuPrincipal {
 
 
     /** 
      * Método ControladorMenu.
      * Lógica asociada a esta parte del controlador.
      */
-    public ControladorMenu(VistaInicioSesion vistainiciomenu,VistaInicioMenu vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuario) {
+    public ContMenuPrincipal(VistaInicio vistainiciomenu,VistaMenuPrincipal vistaMenu, VistaResumenCompras vistaResumenCompras, VistaComprarComponentes vistaComponentes, VistaMenuAdmin vistaAdmin, String  usuario) {
 
         vistaMenu.setNombreUsuario(usuario);
 
@@ -39,7 +39,7 @@ public class ControladorMenu {
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
                 vistaResumenCompras.mostrarVentana();
-                new ContResumenComp(vistaResumenCompras, vistaMenu, usuario);
+                new ContResumenCompras(vistaResumenCompras, vistaMenu, usuario);
             }
         });
 
@@ -53,7 +53,7 @@ public class ControladorMenu {
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
                 vistaComponentes.mostrarVentana();
-                new ContComponenetes(vistaComponentes, vistaMenu, usuario);
+                new ContComprarComponenetes(vistaComponentes, vistaMenu, usuario);
             }
         });
 
@@ -66,7 +66,7 @@ public class ControladorMenu {
              */
             public void actionPerformed(ActionEvent e) {
                 Connection cn = ConexionBD.conectar();
-                if (UsuarioDAO.esAdmin(cn, usuario)) {
+                if (UsuarioDAO.ComprobaresAdmin(cn, usuario)) {
                     vistaMenu.cerrarVentana();
                     vistaAdmin.mostrarVentana();
                     new ContMenuAdmin(vistaMenu, vistaAdmin, new VistaBorrarComp(),new VistaAñadirComp(), usuario);
@@ -86,8 +86,8 @@ public class ControladorMenu {
             public void actionPerformed(ActionEvent e) {
                 vistaMenu.cerrarVentana();
                 
-                new ContInicioSesion().iniciar(new VistaInicioSesion(), new VistaLogin(), new VistaRegistro(), 
-                        new VistaInicioMenu(), new VistaComponentes(), new VistaResumenCompras(), new VistaMenuAdmin());
+                new ContPrimeraVista().iniciar(new VistaInicio(), new VistaLogin(), new VistaRegistro(), 
+                        new VistaMenuPrincipal(), new VistaComprarComponentes(), new VistaResumenCompras(), new VistaMenuAdmin());
             }
         });
 

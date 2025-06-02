@@ -34,9 +34,9 @@ public class ComponenteDAO {
 
     
     /**
- * Método mostrarComponente.
- * 
- */
+     * Método mostrarComponente.
+     * 
+     */
 
     public void mostrarComponente(Connection cn) {
         try {
@@ -63,18 +63,6 @@ public class ComponenteDAO {
  * 
  */
 
-    public void actualizarStock(Connection cn, String nombre, int nuevoStock) {
-        try {
-            Statement st = cn.createStatement();
-            String consulta = "UPDATE componentes SET stock = " + nuevoStock + " WHERE nombre = '" + nombre + "'";
-            int filas = st.executeUpdate(consulta);
-            System.out.println("Stock actualizado. Filas afectadas: " + filas);
-            st.close();
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar el stock");
-            e.printStackTrace();
-        }
-    }
 
     /**
  * Método borrarComponente.
@@ -89,7 +77,7 @@ public class ComponenteDAO {
             int filas = st.executeUpdate(consulta);
 
             if (filas > 0) {
-                result = true; // se borró al menos un componente
+                result = true; 
             }
 
             System.out.println("Componente borrado. Filas afectadas: " + filas);
@@ -123,6 +111,9 @@ public class ComponenteDAO {
                     result = true; // son compatibles
                 }else {
                     result = false; // no son compatibles
+                    String textoError="Componente: "+componente+" no compatible";
+                    JOptionPane.showMessageDialog(null,textoError);
+                    return result;
                 }
             }
 
@@ -229,23 +220,46 @@ public class ComponenteDAO {
  * @return resultado del método o acción realizada.
  */
 
-    public boolean actualizarComponente(String nombre, int stock) {
-        boolean result = true;
-        try {
-            Connection cn = ConexionBD.conectar();
-            Statement st = cn.createStatement();
-            String consulta = "UPDATE componentes SET stock = " + stock + " WHERE nombre = '" + nombre + "'";
-            int filas = st.executeUpdate(consulta);
-            if (filas == 0) {
-                result = false; // no se actualizó ningún componente
-            }
+    public boolean añadirStock(Connection cn, String nombre, int stock) {
+    boolean result = true;
+
+    try {
+        Statement st = cn.createStatement();
+        String consultaSelect = "SELECT stock FROM componentes WHERE nombre = '" + nombre + "'";
+        ResultSet rs = st.executeQuery(consultaSelect);
+
+        int stockActual = 0;
+
+        if (rs.next()) {  
+            stockActual = rs.getInt("stock");
+        } else {
+            System.out.println("No se encontró el componente con nombre: " + nombre);
+            rs.close();
             st.close();
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar componente");
-            e.printStackTrace();
+            return false;  
         }
-        return result;
+
+        rs.close();
+
+        int nuevoStock = stockActual + stock;
+        String consultaUpdate = "UPDATE componentes SET stock = " + nuevoStock + " WHERE nombre = '" + nombre + "'";
+        int filas = st.executeUpdate(consultaUpdate);
+
+        if (filas == 0) {
+            result = false;  
         }
+
+        st.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error al añadir stock");
+        e.printStackTrace();
+        result = false;
+    }
+
+    return result;
+}
+
 
 }
 

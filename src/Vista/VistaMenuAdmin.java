@@ -48,7 +48,7 @@ public class VistaMenuAdmin {
         ventana.getContentPane().add(btnAñadir);
         
 
-        btnActualizar = new JButton("Actualizar Componente");
+        btnActualizar = new JButton("Añadir Stock");
         btnActualizar.setBounds(250, 360, 300, 60);
         btnActualizar.setFont(new Font("Arial", Font.PLAIN, 22));
         ventana.getContentPane().add(btnActualizar);

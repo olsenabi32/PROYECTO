@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  * Se encarga de responder a las acciones del usuario y actualizar vistas o datos según sea necesario.
  */
 
-public class ContActualizComp {
+public class CompStock {
 
     /** 
      * Método ContActualizComp.
      * Lógica asociada a esta parte del controlador.
      */
 
-    public ContActualizComp(VistaActualizaComp vistaActualizaComp, VistaMenuAdmin vistaMenuAdmin) {
+    public CompStock(VistaAñadirStock vistaActualizaComp, VistaMenuAdmin vistaMenuAdmin) {
 
         Connection cn = ConexionBD.conectar();
         ComponenteDAO componenteDAO = new ComponenteDAO();
@@ -44,7 +44,7 @@ public class ContActualizComp {
                     int stock = Integer.parseInt(vistaActualizaComp.campoStock.getText());
 
                     ComponenteDAO componenteDAO = new ComponenteDAO();
-                    if (componenteDAO.actualizarComponente(nombre, stock)) {
+                    if (componenteDAO.añadirStock(cn,nombre, stock)) {
                         JOptionPane.showMessageDialog(null, "Componente actualizado con éxito");
                         vistaActualizaComp.campoNombre.setText("");
                         vistaActualizaComp.campoStock.setText("");

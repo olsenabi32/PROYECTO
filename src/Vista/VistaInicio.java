@@ -8,13 +8,13 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class VistaInicioSesion {
+public class VistaInicio {
 
     private JFrame ventana;
     public JButton btnLogin;
     public JButton btnRegistro;
 
-    public VistaInicioSesion() {
+    public VistaInicio() {
         initialize();
     }
 
@@ -62,7 +62,7 @@ public class VistaInicioSesion {
 
 
     public static void main(String[] args) {
-        VistaInicioSesion vista = new VistaInicioSesion();
+        VistaInicio vista = new VistaInicio();
         vista.mostrarVentana();
     }
 }
